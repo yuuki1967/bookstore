@@ -58,7 +58,7 @@ jobs:
         uses: scacap/action-surefire-report@v1
         
       - name: Save artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{matrix.os}}-${{matrix.java}}-${{github.sha}}.war
           path: target/*.war
