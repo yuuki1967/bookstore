@@ -46,3 +46,30 @@ If you just want to run it as you have already compiled the code:
 ```bash
 $ docker run -it -v maven-repo:/root/.m2 -v `pwd`:/maven -w /maven -p 8080:8080 maven:3.6.3-openjdk-15 mvn jetty:run
 ```
+
+### Yuki's memo
+$ docker run -it -v maven-repo:/root/.m2 -v `pwd`:/maven -w /maven -p 8080:8080 maven:3.6.3-openjdk-15 mvn -P\!build-container package jetty:run
+
+```
+[INFO] Scanning elapsed time=237ms
+[INFO] DefaultSessionIdManager workerName=node0
+[INFO] No SessionScavenger set, using defaults
+[INFO] node0 Scavenging every 660000ms
+[INFO] Started o.e.j.m.p.JettyWebAppContext@8f09a02{/,file:///maven/src/main/webapp/,AVAILABLE}{file:///maven/src/main/webapp/}
+[INFO] Started ServerConnector@b5d7233{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[INFO] Started @27500ms
+[INFO] Started Jetty Server
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+^C[INFO] Stopped ServerConnector@b5d7233{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+[INFO] node0 Stopped scavenging
+[INFO] Stopped o.e.j.m.p.JettyWebAppContext@8f09a02{/,file:///maven/src/main/webapp/,UNAVAILABLE}{file:///maven/src/main/webapp/}
+[INFO] Jetty server exiting.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  24:50 min
+[INFO] Finished at: 2023-05-02T03:24:03Z
+[INFO] ------------------------------------------------------------------------
+```
